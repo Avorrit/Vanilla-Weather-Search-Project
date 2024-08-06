@@ -3,31 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
     <title>Vanilla search weather app</title>
+    <link rel="stylesheet" href="src/styles.css">
 </head>
 <body>
+    <div class="outter-border">
+    <div class="weather-section">
     <header>
-        
         <main>
             <div class="search-city-section">
                 <input type="search" id="search-box" placeholder="Enter a city..." required>
-                <input type="submit" id="submit-button">
+                <input type="submit" id="submit-button" value="Search">
             </div>
             <div class="current-weather">
                 <h1 id="city-name">
                     Paris
                 </h1>
-                <p>
-                    <span>Tuesday</span> 
-                    <span>14:49</span>,
-                    <span>Scattered clouds</span>
+                <p class="weather-detail">
+                    <span id="current-date">Tuesday</span> 
+                    <span id="current-time">14:49</span>,
+                    <span id="current-condition">Scattered clouds</span>
 
                     <br />
                     Humidity: 
-                    <span>66</span>
-                    %, Wind: 
-                    <span>3.13</span>
-                    km/h
+                    <span id="humidity">66%</span>
+                    , Wind: 
+                    <span id="wind-speed">3.13km/h</span>
                 </p>
             </div>
         </main>
@@ -46,5 +50,9 @@
             Netlify
         </a>
     </footer>
+</div>
+</div>
+
+<script src="src/index.js"></script>
 </body>
 </html>
