@@ -6,6 +6,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <title>Vanilla search weather app</title>
     <link rel="stylesheet" href="src/styles.css">
 </head>
@@ -21,20 +22,21 @@
             <div class="current-weather">
                 <div class="primary-details">
                     <h1 id="city-name">
-                        Paris
+                        
                     </h1>
-                    <img src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/scattered-clouds-day.png" id="weather-icon">    
+                    <img  id="weather-icon">
+                    <h2 id="current-temperature"></h2>
                 </div>
                 <p class="weather-detail">
-                    <span id="current-date">Tuesday</span> 
-                    <span id="current-time">14:49</span>,
-                    <span id="current-condition">Scattered clouds</span>
+                    <span id="current-date"></span> 
+                    <span id="current-time"></span>,
+                    <span id="current-condition"></span>
 
                     <br />
                     Humidity: 
-                    <span id="humidity">66%</span>
-                    , Wind: 
-                    <span id="wind-speed">3.13km/h</span>
+                    <span id="humidity"></span>
+                    , Wind:
+                    <span id="wind-speed"></span>
                 </p>
             </div>
         </main>
@@ -46,12 +48,12 @@
             Ghazal Jamali
         </a>
         , is available on
-        <a href="https://github.com/">
+        <a href="https://github.com/" target="_blank">
             GitHub
         </a>
         and hosted by 
-        <a href="https://www.netlify.com/">
-            Netlify
+        <a href="https://vercel.com/" target="_blank">
+            Vercel
         </a>
     </footer>
 </div>

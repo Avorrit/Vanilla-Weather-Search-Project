@@ -20,6 +20,7 @@ div {
     padding-bottom: 10px;
     margin: 20px 15px;
     max-width: 650px;
+    height: 450px;
     border-radius: 13px;
     box-shadow: 6px 6px 6px rgba(163, 162, 156, 0.4);
 
@@ -35,8 +36,8 @@ footer {
 .weather-detail {
     color: #8b8b8b;
     font-size: 19px;
-    margin: 30px 0;
-    padding-bottom: 20px;
+    margin: 30px 0 30px;
+    min-height: 66px;
 }
 
 .outter-border {
@@ -60,7 +61,7 @@ footer {
 #search-box {
     padding-left: 15px;
     border: 1px solid #FF8C9E;
-    border-radius: 27px;
+    border-radius: 30px;
     font-size: 20px;
     width: 350px;
 }
@@ -68,8 +69,8 @@ footer {
 
 #submit-button {
     padding: 15px 17px;
-    font-size: 20px;
-    border-radius: 27px;
+    font-size: 25px;
+    border-radius: 30px;
     border: none;
     font-weight: 900;
     background-color: #FF8C9E;
@@ -97,6 +98,7 @@ a:hover {
 
 #city-name {
     font-size: 60px;
+    min-height: 72px;
 }
 
 .primary-details{
@@ -105,7 +107,15 @@ a:hover {
     justify-content: space-between;
 }
 
-#weather-icon {
-    width: 200px;
+#current-temperature {
+    font-size: 60px;
+    sup {
+        font-size: 25px;
+        font-weight: 700;
+    }
+}
 
+#weather-icon {
+    width: 150px;
+    padding-left: 150px;
 }
