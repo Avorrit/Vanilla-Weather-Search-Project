@@ -1,4 +1,4 @@
-const apiKey = 'td30122f3632b6421c87bebo74a76a17';
+let currentDate = new Date();
 let daysArr = [
     'Sunday',
     'Monday',
@@ -8,14 +8,9 @@ let daysArr = [
     'Friday',
     'Saturday'
 ];
-function displayPrimaryDetails(){
-    let apiUrl = `https://api.shecodes.io/weather/v1/current?query=paris&key=${apiKey}&units=metric`;
-    axios.get(apiUrl).then(displayWeather);
-}
 
 
 function displayTime(){
-    let currentDate = new Date();
     let minutes = currentDate.getMinutes().toString().padStart(2, '0');
     let hours = currentDate.getHours().toString().padStart(2, '0');
     let day = daysArr[currentDate.getDay()];
@@ -29,6 +24,7 @@ function displayTime(){
 }
 
 function displayWeather(response){
+    
     let cityName = response.data.city;
     console.log(response.data.city)
     let weatherIconUrl = response.data.condition.icon_url;
@@ -55,22 +51,32 @@ function displayWeather(response){
     windElement.innerHTML = `${windSpeed}km/h`;
 }
 
+function searchDestCity(cityName){
+    const apiKey = 'td30122f3632b6421c87bebo74a76a17';
+    let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${cityName}&key=${apiKey}&units=metric`;
+    axios.get(apiUrl).then(displayWeather);
+}
+
 function search(event){
     event.preventDefault();
-    let city = document.getElementById('search-box').value.toString();
-    let searchUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
+    let cityInputElement = document.getElementById('search-box');
+    let warningElement = document.getElementById('warning-text');
 
-    axios.get(searchUrl).then(displayWeather);
+    if(cityInputElement.value.length > 0){
+        warningElement.innerHTML = '';
+          searchDestCity(cityInputElement.value);
+    }
+    else {
+        warningElement.innerHTML = 'Please fill out this field';
+    }
 }
 
 let searchButton = document.getElementById('submit-button');
+let searchForm = document.getElementById('search-box');
+
 searchButton.addEventListener("click", search);
+searchForm.addEventListener("submit", search);
 
-function updateTime(){
-    displayTime();
-    setInterval(displayTime, 1000)
-}
-
-updateTime();
-displayPrimaryDetails();
+searchDestCity('Paris');
+displayTime();
 
